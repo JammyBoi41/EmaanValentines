@@ -59,7 +59,7 @@ export function HeroSection() {
 
       {/* subtitle + typewriter */}
       <div className="mt-10 min-h-[3rem]">
-        {showSubtext && (
+        {(
           <p className="font-sans text-xl md:text-3xl text-foreground text-center leading-relaxed">
             I love you fat :3
           </p>
