@@ -37,7 +37,7 @@ export function FallingHearts() {
   }, [])
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-pink-100" aria-hidden="true">
       {hearts.map((heart) => (
         <div
           key={heart.id}
