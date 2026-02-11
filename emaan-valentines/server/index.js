@@ -27,3 +27,9 @@ app.get("/", (req, res) => {
 app.listen(3000, () => {
     console.log("server running on port 3000!");
 });
+
+
+//MongoDB-specific routes
+const grievanceRouter = require("./routes/grievances");
+
+app.use("/grievances", grievanceRouter);
