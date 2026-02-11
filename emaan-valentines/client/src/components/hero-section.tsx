@@ -28,7 +28,7 @@ export function HeroSection() {
       {sparkles.map((s) => (
         <div
           key={s.id}
-          className="absolute w-2 h-2 bg-primary animate-sparkle"
+          className="absolute w-2 h-2 bg-primary animate-ping"
           style={{
             left: `${s.x}%`,
             top: `${s.y}%`,
