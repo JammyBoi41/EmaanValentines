@@ -1,8 +1,8 @@
-import backend_url from '../constants/urls';
+import { backend_url } from '../constants/urls';
 
 async function getNotes() {
     try {
-        const res = await fetch(backend_url, "grievances/");
+        const res = await fetch(`${backend_url}/grievances`);
         const data = await res.json()
 
         if (!data.error) {

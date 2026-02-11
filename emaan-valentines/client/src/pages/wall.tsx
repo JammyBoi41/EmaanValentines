@@ -35,6 +35,8 @@ export function Wall() {
                 )}
             </div>
 
+            <Notes/>
+
             
 
 
