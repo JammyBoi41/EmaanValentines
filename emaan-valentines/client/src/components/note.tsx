@@ -13,7 +13,7 @@ const Note = ({text}: NoteProp) => {
     }
     
   return (
-    <div style={{backgroundColor: getRandomValentineColor()}} className="flex justify-center items-center max-w-80 h-50 md:min-w-[5rem] md:min-h-[5rem] font-mono text-sm md:text-4xxl">
+    <div style={{backgroundColor: getRandomValentineColor()}} className="flex justify-center items-center max-w-80 h-50 md:min-w-[5rem] md:min-h-[5rem] font-mono text-sm md:text-4xxl rounded">
         {text}
     </div>
   )

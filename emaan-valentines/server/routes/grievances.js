@@ -15,4 +15,37 @@ router.get("/", async(req, res)=> {
     }
 });
 
+router.post("/create", async (req, res) => {
+  try {
+    const { text } = req.body;
+
+    if (!text || text.trim() === "") {
+      return res.status(400).json({ error: "Grievance text cannot be empty" });
+    }
+
+    const newGrievance = new Grievance({ text });
+    const savedGrievance = await newGrievance.save();
+
+    res.status(201).json(savedGrievance);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to create grievance" });
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+    try {
+        const deletedNote = await Grievance.findByIdAndDelete(req.params.id);
+
+        if (!deletedNote) {
+            return res.status(404).json({ error: "Note not found" });
+        }
+
+        res.json({ message: "Note deleted successfully" });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Failed to delete note" });
+    }
+});
+
 module.exports = router;
