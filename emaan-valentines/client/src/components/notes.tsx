@@ -3,8 +3,8 @@ import getNotes from "../hooks/getNotes";
 import Note from "./note";
 
 interface NoteI {
+    _id: string;
     text: string;
-    createdAt: string;
 }
 
 export function Notes() {
@@ -34,7 +34,7 @@ export function Notes() {
         <div className="grid grid-cols-1 gap-y-10 md:grid-cols-3 md:gap-x-10">
             {notes.map((note, i) => (
                 <div style={{ transform: `rotate(${Math.floor(Math.random() * 5) - 2}deg)`}}>
-                    <Note key={i} text={note.text}/>
+                    <Note key={i} text={note.text} id={note._id}/>
                 </div>
             ))}
         </div>
