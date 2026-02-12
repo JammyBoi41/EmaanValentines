@@ -1,14 +1,34 @@
 import '../styles/App.css'
+import { useEffect, useState } from 'react'
 import { Header } from '../components/header'
 import { FallingHearts } from '../components/falling-hearts'
 import { PixelHeart } from '../components/pixel-heart'
 import { Notes } from '../components/notes'
 import { valentineColors } from '../constants/colors'
 import CustomModal from '../components/modal'
+import { backend_url } from '../constants/urls'
 
 export function Wall() {
+    const [auth, setAuth] = useState<boolean | null>(null);
 
-    return (
+    useEffect(() => {
+    fetch(`${backend_url}/auth/verify`, {
+        method: "GET",
+        credentials: "include"
+    })
+        .then(res => {console.log(res); setAuth(res.ok)})
+        .catch(() => setAuth(false));
+    }, []);
+
+    if (auth === null) return (
+        <div className="min-h-screen min-h-screen">
+            <img src={"boiled_one.jpeg"}/>
+            youre fat
+        </div>
+    );
+    
+
+    return (auth === true ? (
         <main className="relative min-h-screen py-10">
         <Header/>
         <FallingHearts/>
@@ -43,5 +63,12 @@ export function Wall() {
 
         </div>
         </main>
-  )
+  ) : (
+    <div className="min-h-screen min-w-screen flex flex-col md:flex-row items-center justify-center">
+        <p className="text-3xl text-red-800">
+            YOU'RE NOT SUPPOSED TO BE HERE
+        </p>
+        <img className="w-[100%] md:w-[50%]" src={"boiled_one.jpeg"}/>
+    </div>
+  ))
 }

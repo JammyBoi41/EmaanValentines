@@ -22,7 +22,6 @@ export function Landing() {
         });
         const data = await res.json()
         if(res.ok) {
-            localStorage.setItem('auth_token', data.token);
             setSrc("dog-successful.webp");
             setTimeout(() => {
                 navigate("/home");
