@@ -14,7 +14,7 @@ dbConn();
 
 //use CORS
 app.use(cors({
-    origin: "https://emaan-valentines.vercel.app",
+    origin: "https://emaan-valentines-evoujqs2v-jaminchung-gmailcoms-projects.vercel.app",
     credentials: true
 }));
 
