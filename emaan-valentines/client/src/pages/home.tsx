@@ -25,10 +25,7 @@ export function Home() {
     }, []);
 
     if (auth === null) return (
-        <div className="min-h-screen min-h-screen">
-            <img src={"boiled_one.jpeg"}/>
-            youre fat
-        </div>
+        <FallingHearts/>
     );
 
     return (
@@ -43,12 +40,7 @@ export function Home() {
         </div>
         </main>
     ) :         
-    <div className="min-h-screen min-w-screen flex flex-row items-center justify-center">
-            <p className="text-3xl text-red-800">
-                YOU'RE NOT SUPPOSED TO BE HERE
-            </p>
-            <img className="w-[50%]" src={"boiled_one.jpeg"}/>
-    </div>
+    <FallingHearts/>
 
     );
 
