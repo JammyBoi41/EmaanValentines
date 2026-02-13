@@ -14,7 +14,8 @@ export function Home() {
     useEffect(() => {
     fetch(`${backend_url}/auth/verify`, {
         method: "GET",
-        credentials: "include"
+        credentials: "include",
+        body: JSON.stringify({token: localStorage.getItem('auth_token')})
     })
         .then(res => {console.log(res); setAuth(res.ok)})
         .catch(() => setAuth(false));

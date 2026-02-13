@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 
 router.get("/", async(req, res)=> {
     try {
-        const token = req.cookies.auth_token || req.headers.authorization?.replace('Bearer ', '');
+        const {token} = req.body;
         jwt.verify(token, process.env.JWT_SECRET);
 
         const grievances = await Grievance
@@ -21,7 +21,7 @@ router.get("/", async(req, res)=> {
 
 router.post("/create", async (req, res) => {
   try {
-    const token = req.cookies.auth_token || req.headers.authorization?.replace('Bearer ', '');
+    const {token} = req.body;
     jwt.verify(token, process.env.JWT_SECRET);
     
     const { text } = req.body;
@@ -42,7 +42,7 @@ router.post("/create", async (req, res) => {
 
 router.delete("/delete/:id", async (req, res) => {
     try {
-        const token = req.cookies.auth_token || req.headers.authorization?.replace('Bearer ', '');
+        const {token} = req.body;
         jwt.verify(token, process.env.JWT_SECRET);
 
         const deletedNote = await Grievance.findByIdAndDelete(req.params.id);
