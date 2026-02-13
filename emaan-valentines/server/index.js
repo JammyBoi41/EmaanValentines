@@ -14,7 +14,7 @@ dbConn();
 
 //use CORS
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://emaan-valentines.vercel.app",
     credentials: true
 }));
 
