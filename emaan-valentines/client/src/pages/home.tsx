@@ -13,7 +13,7 @@ export function Home() {
 
     useEffect(() => {
     fetch(`${backend_url}/auth/verify`, {
-        method: "GET",
+        method: "POST",
         credentials: "include",
         body: JSON.stringify({token: localStorage.getItem('auth_token')})
     })

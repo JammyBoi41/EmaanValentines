@@ -23,7 +23,7 @@ router.post('/login', (req, res) => {
     }
 });
 
-router.get('/verify', (req, res) => {
+router.post('/verify', (req, res) => {
   const {token} = req.body;
   console.log("hi there");
   console.log(token);
