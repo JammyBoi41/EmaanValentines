@@ -18,7 +18,7 @@ export function Home() {
         body: JSON.stringify({token: localStorage.getItem('auth_token')})
     })
         .then(res => {console.log(res); setAuth(res.ok)})
-        .catch(() => setAuth(false));
+        .catch((err) =>{console.log("err: ", err); setAuth(false)});
     }, []);
 
     if (auth === null) return (
