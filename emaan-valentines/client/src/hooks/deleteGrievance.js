@@ -7,7 +7,8 @@ async function deleteGrievance(id) {
             credentials: "include",
             headers: {
                 "Content-Type": "application/json"
-            }
+            },
+            body: JSON.stringify({token: localStorage.getItem('auth_token')})
         })
     } catch (err) {
         return {error: err};
