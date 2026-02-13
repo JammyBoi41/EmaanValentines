@@ -15,6 +15,9 @@ export function Home() {
     fetch(`${backend_url}/auth/verify`, {
         method: "POST",
         credentials: "include",
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify({token: localStorage.getItem('auth_token')})
     })
         .then(res => {console.log(res); setAuth(res.ok)})
