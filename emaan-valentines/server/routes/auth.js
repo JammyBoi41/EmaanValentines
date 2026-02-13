@@ -22,7 +22,6 @@ router.get('/verify', (req, res) => {
   const token = req.cookies.auth_token || req.headers.authorization?.replace('Bearer ', '');
   try {
     jwt.verify(token, process.env.JWT_SECRET);
-    console.log('hi');
     res.json({ authenticated: true });
   } catch(err) {
     res.status(401).json({ error: 'Not authenticated' });

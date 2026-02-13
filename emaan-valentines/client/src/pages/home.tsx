@@ -4,6 +4,7 @@ import { Header } from '../components/header'
 import { FallingHearts } from '../components/falling-hearts'
 import { HeroSection } from '../components/hero-section'
 import { CoupleScene } from '../components/couple-scene'
+import LoveLetter from '../components/love-letter'
 import { backend_url } from '../constants/urls'
 
 
@@ -31,9 +32,10 @@ export function Home() {
         <main className="relative min-h-screen">
         <Header />
         <FallingHearts />
-        <div className="relative z-10">
+        <div className="relative z-10 flex justify-center items-center flex-col">
             <HeroSection />
             <CoupleScene />
+            <LoveLetter/>
         </div>
         </main>
     ) :         
