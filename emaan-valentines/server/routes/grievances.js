@@ -26,6 +26,8 @@ router.post("/create", async (req, res) => {
     
     const { text } = req.body;
 
+    console.log("Creating note...")
+
     if (!text || text.trim() === "") {
       return res.status(400).json({ error: "Grievance text cannot be empty" });
     }

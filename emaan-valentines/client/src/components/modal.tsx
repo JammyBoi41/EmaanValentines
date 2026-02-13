@@ -37,8 +37,10 @@ export default function ValentineModal() {
                 disabled={text === ""}
                 className="mt-4 border border-red-400 px-3 py-1 rounded hover:bg-red-50"
                 onClick={(e) => {
-                    createGrievance(text);
-                    window.location.reload();           
+                    createGrievance(text).then(res => {
+                        window.location.reload(); 
+                    });
+                              
                     }}
             >
               Post!
