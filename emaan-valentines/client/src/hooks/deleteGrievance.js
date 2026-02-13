@@ -4,7 +4,7 @@ async function deleteGrievance(id) {
     try {
         const res = await fetch(`${backend_url}/grievances/delete/${id}`, {
             method: "DELETE",
-            // credentials: "include" do this later with the session cookie
+            credentials: "include",
             headers: {
                 "Content-Type": "application/json"
             }

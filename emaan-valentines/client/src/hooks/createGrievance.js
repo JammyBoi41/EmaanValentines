@@ -4,7 +4,7 @@ async function createGrievance(text) {
     try {
         const res = await fetch(`${backend_url}/grievances/create`, {
             method: "POST",
-            // credentials: "include" do this later with the session cookie
+            credentials: 'include',
             headers: {
                 "Content-Type": "application/json"
             },
