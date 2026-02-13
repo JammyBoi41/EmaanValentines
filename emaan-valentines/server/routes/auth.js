@@ -7,8 +7,13 @@ router.post('/login', (req, res) => {
         const {password} = req.body;
         if (password == process.env.PASSWORD) {
             const token = jwt.sign({ auth: true }, process.env.JWT_SECRET, { expiresIn: '24h' });
-            res.cookie('auth_token', token, { httpOnly: true, maxAge: 86400000 });
-            res.json({ success: true, token });
+        res.cookie('auth_token', token, { 
+        httpOnly: true, 
+        secure: true,
+        sameSite: 'none',
+        maxAge: 86400000 
+        });            
+        res.json({ success: true, token });
         } else {
             res.status(401).json({ error: 'Wrong password' });
         }
