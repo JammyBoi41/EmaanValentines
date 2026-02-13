@@ -9,7 +9,10 @@ async function deleteGrievance(id) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({token: localStorage.getItem('auth_token')})
-        })
+        });
+
+        const data = await res.json();
+        return data;
     } catch (err) {
         return {error: err};
     }

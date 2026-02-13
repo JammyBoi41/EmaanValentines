@@ -8,7 +8,7 @@ async function createGrievance(text) {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ text })
+            body: JSON.stringify({ text: text, token: localStorage.getItem('auth_token') })
         });
 
         const data = await res.json();
