@@ -25,8 +25,6 @@ router.post('/login', (req, res) => {
 
 router.post('/verify', (req, res) => {
   const {token} = req.body;
-  console.log("hi there");
-  console.log(token);
   try {
     jwt.verify(token, process.env.JWT_SECRET);
     res.json({ authenticated: true });

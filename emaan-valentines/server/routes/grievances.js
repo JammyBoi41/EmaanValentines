@@ -3,7 +3,7 @@ const router = express.Router();
 const Grievance = require('../models/Grievance');
 const jwt = require("jsonwebtoken");
 
-router.get("/", async(req, res)=> {
+router.post("/", async(req, res)=> {
     try {
         const {token} = req.body;
         jwt.verify(token, process.env.JWT_SECRET);
